@@ -6,11 +6,64 @@ const ctx = canvas.getContext('2d');
 let img = new Image();
 // Init filename variable
 let fileName = '';
+
 // Get button elements 
 const downloadBtn = document.getElementById('download-btn');
 const uploadFile = document.getElementById('upload-file');
 const revertBtn = document.getElementById('revert-btn');
-// Filters 
+
+// Add filters & effects 
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('filter-btn')) {
+    const filter = e.target.classList[1];
+    
+    switch (filter) {
+      case 'brightness-add':
+        Caman('#canvas', img, function () {
+          this.brightness(5).render();
+        });
+        break;
+      case 'brightness-remove':
+        Caman('#canvas', img, function () {
+          this.brightness(-5).render();
+        });
+        break;
+      case 'contrast-add':
+        Caman('#canvas', img, function () {
+          this.contrast(5).render();
+        });
+        break;
+      case 'contrast-remove':
+        Caman('#canvas', img, function () {
+          this.contrast(-5).render();
+        });
+        break;
+      case 'saturation-add':
+        Caman('#canvas', img, function () {
+          this.saturation(15).render();
+        });
+        break;
+      case 'saturation-remove':
+        Caman('#canvas', img, function () {
+          this.saturation(-15).render();
+        });
+        break;
+      case 'vibrance-add':
+        Caman('#canvas', img, function () {
+          this.vibrance(15).render();
+        });
+        break;
+      case 'vibrance-remove':
+        Caman('#canvas', img, function () {
+          this.vibrance(-15).render();
+        });
+        break;
+    
+      default:
+          
+    }
+  }
+});
 
 // Upload file 
 uploadFile.addEventListener('change', () => {
@@ -40,4 +93,3 @@ uploadFile.addEventListener('change', () => {
     }
   }, false);
 });
-
