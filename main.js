@@ -58,9 +58,46 @@ document.addEventListener('click', (e) => {
           this.vibrance(-15).render();
         });
         break;
-    
-      default:
-          
+      case 'vintage-add':
+        Caman('#canvas', img, function () {
+          this.vintage().render();
+        });
+        break;
+      case 'lomo-add':
+        Caman('#canvas', img, function () {
+          this.lomo().render();
+        });
+        break;
+      case 'clarity-add':
+        Caman('#canvas', img, function () {
+          this.clarity().render();
+        });
+        break;
+      case 'sincity-add':
+        Caman('#canvas', img, function () {
+          this.sinCity().render();
+        });
+        break;
+      case 'crossprocess-add':
+        Caman('#canvas', img, function () {
+          this.crossProcess().render();
+        });
+        break;
+      case 'pinhole-add':
+        Caman('#canvas', img, function () {
+          this.pinhole().render();
+        });
+        break;
+      case 'nostalgia-add':
+        Caman('#canvas', img, function () {
+          this.nostalgia().render();
+        });
+        break;
+      case 'hermajesty-add':
+        Caman('#canvas', img, function () {
+          this.herMajesty().render();
+        });
+        break;
     }
   }
 });
