@@ -137,3 +137,33 @@ uploadFile.addEventListener('change', () => {
     }
   }, false);
 });
+
+// Download file 
+downloadBtn.addEventListener('click', (e) => {
+  // Get file extension 
+  const fileExtension = fileName.slice(-4);
+  // Init new filename 
+  let newFileName;
+  // Check image type 
+  if (fileExtension == '.jpg' || fileExtension == '.png') {
+    newFileName = fileName.substring(0, fileName.length - 4) + `-edited.jpg`;
+  }
+  
+  // Call download 
+  download(canvas, newFileName);
+});
+
+// Download function 
+function download(canvas, filename) {
+  // Init event 
+  let event;
+  // Create link 
+  const link = document.createElement('a');
+  // Set props 
+  link.download = filename;
+  link.href = canvas.toDataURL('image/jpeg');
+  // New mouse event 
+  event = new MouseEvent('click');
+  // Dispatch event 
+  link.dispatchEvent(event);
+}
