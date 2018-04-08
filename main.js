@@ -102,6 +102,13 @@ document.addEventListener('click', (e) => {
   }
 });
 
+//  Revert image, remove filters and effects 
+revertBtn.addEventListener('click', () => {
+  Caman('#canvas', img, function () {
+    this.revert();
+  });
+});
+
 // Upload file 
 uploadFile.addEventListener('change', () => {
   // Get file (first item in array) 
